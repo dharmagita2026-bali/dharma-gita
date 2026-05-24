@@ -2,10 +2,15 @@ import { prisma } from "@/lib/prisma";
 import MateriClient from "./MateriClient";
 
 export default async function AdminMateriPage() {
-  const materiList = await prisma.materi.findMany({
+  const materiFromDb = await prisma.materi.findMany({
     include: { kidungs: true },
     orderBy: { createdAt: 'asc' },
   });
+
+  const formattedMateri = materiFromDb.map((materi) => ({
+    ...materi,
+    imageUrls: (materi.imageUrls as string[]) || [], 
+  }));
 
   return (
     <>
@@ -16,7 +21,7 @@ export default async function AdminMateriPage() {
         </div>
       </header>
       
-      <MateriClient materiList={materiList} />
+      <MateriClient materiList={formattedMateri} />
     </>
   );
 }
