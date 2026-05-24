@@ -10,7 +10,15 @@ interface Kidung {
 }
 
 interface MateriWithKidungs {
-  id: string; slug: string; title: string; description: string; kidungs: Kidung[];
+  id: string; 
+  slug: string; 
+  title: string; 
+  description: string; 
+  level: number;              
+  infoText1?: string | null;  
+  infoText2?: string | null;  
+  imageUrls?: string[];       
+  kidungs: Kidung[];
 }
 
 export default function MateriClient({ materiList }: { materiList: MateriWithKidungs[] }) {
