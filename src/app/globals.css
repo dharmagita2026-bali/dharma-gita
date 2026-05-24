@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #4E342E; 
+  --color-brand-gold: #D4A017;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(180deg, #4E342E 0%, #8D6E63 100%);
+}
+
+.feature-card-shape {
+  border-radius: 60px 60px 40px 40px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+@layer base {
+  button, 
+  a, 
+  label,
+  select,
+  input[type="button"],
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="file"] {
+    cursor: pointer;
+  }
+
+  button * {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .bg-hero-gradient {
+    background: linear-gradient(180deg, #4E342E 0%, #8D6E63 100%);
+  }
+
+  .feature-card-shape {
+    border-radius: 60px 60px 40px 40px;
+  }
+  
+  .interactive-hover {
+    @apply cursor-pointer transition-all duration-200 active:scale-[0.98] hover:brightness-110;
+  }
+}

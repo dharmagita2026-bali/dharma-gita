@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  username     String        @unique
+  password     String
+  name         String? 
+  image        String?
+  role         String        @default("user")
+  
+  exp          Int           @default(0)
+  level        Int           @default(1)
+  
+  quizHistory  QuizHistory[]
+  masteredKidungs UserKidungMastery[]
+  
+  createdAt    DateTime      @default(now())
+}
+
+model Materi {
+  id          String   @id @default(cuid())
+  slug        String   @unique 
+  title       String
+  description String   @db.Text
+  level       Int      @default(1) 
+  createdAt   DateTime @default(now())
+
+  infoText1   String?  @db.Text
+  infoText2   String?  @db.Text
+
+  imageUrls   Json?
+  
+  kidungs     Kidung[]
+}
+
+model Kidung {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text 
+  lyrics      String   @db.Text
+  audioUrl    String   
+  createdAt   DateTime @default(now())
+  
+  materiId    String
+  materi      Materi   @relation(fields: [materiId], references: [id], onDelete: Cascade)
+
+  masteredBy  UserKidungMastery[]
+}
+
+model UserKidungMastery {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kidungId  String
+  kidung    Kidung   @relation(fields: [kidungId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, kidungId])
+}
+
+model QuizHistory {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  score      Int
+  expGained  Int
+  createdAt  DateTime @default(now())
+}
