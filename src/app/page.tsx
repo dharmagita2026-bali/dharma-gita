@@ -89,11 +89,11 @@ export default async function HomePage() {
           </div>
 
           <div className="relative pt-12 md:pt-16 pb-20 md:pb-24 bg-[#4E342E]/5 overflow-hidden">
-            <div className="absolute inset-x-0 bottom-0 top-0 opacity-20 pointer-events-none select-none">
+            <div className="absolute inset-x-0 bottom-0 top-0 opacity-60 pointer-events-none select-none">
               <img 
                 src="/images/mountain-asset.png" 
                 alt="Balinese Mountains Background" 
-                className="w-full h-full object-cover object-bottom"
+                className="w-full h-auto object-cover object-bottom"
               />
             </div>
 
