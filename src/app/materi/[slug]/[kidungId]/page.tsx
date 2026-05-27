@@ -59,22 +59,12 @@ export default async function KidungPlayerPage({
           </div>
 
           <div className="space-y-6 flex flex-col justify-between">
-            <div className="space-y-6">
-              <h2 className="text-xl font-black uppercase border-b-2 border-[#F5F5F5] pb-3 italic text-[#4E342E]">
+            <h2 className="text-xl font-black uppercase border-b-2 border-[#F5F5F5] pb-3 italic text-[#4E342E]">
                 Deskripsi
-              </h2>
-              <p className="text-sm text-[#8D6E63] font-medium leading-relaxed text-justify">
+            </h2>
+            <p className="text-sm text-[#8D6E63] font-medium leading-relaxed text-justify">
                 {kidung.description}
-              </p>
-            </div>
-            
-            <div className="pt-6">
-              <Link href={`/game/${kidung.id}`} className="block w-full">
-                <button className="w-full bg-linear-to-b from-[#F3D06D] to-[#D4A017] text-[#5D4037] text-center py-4 rounded-full font-black text-xs uppercase tracking-widest shadow-lg hover:brightness-110 transition-all italic pt-4.5">
-                  Mulai Tebak Kidung (+20 XP) 🎮
-                </button>
-              </Link>
-            </div>
+            </p>
           </div>
 
         </div>
