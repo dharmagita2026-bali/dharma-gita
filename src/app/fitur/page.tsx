@@ -1,5 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import Link from 'next/link';
+import Image from 'next/image';
+
+const COVER_IMAGES: Record<string, string> = {
+  'sekar-rare': '/images/materi-cover-sekar-rare.jpeg',
+  'sekar-alit': '/images/materi-cover-sekar-alit.jpeg',
+  'sekar-madya': '/images/materi-cover-sekar-madya.jpeg',
+  'sekar-agung': '/images/materi-cover-sekar-agung.jpeg',
+};
 
 export default async function FiturPage() {
   const materiList = await prisma.materi.findMany({
@@ -14,8 +22,6 @@ export default async function FiturPage() {
       createdAt: 'asc'
     }
   });
-
-  const dummyText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
 
   return (
     <div className="min-h-screen bg-white font-sans scroll-mt-[100px]">
@@ -48,30 +54,47 @@ export default async function FiturPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center max-w-7xl mx-auto">
-            {materiList.map((materi) => (
-              <Link key={materi.id} href={`/materi/${materi.slug}`} className="group relative w-full flex justify-center">
-                <div className="bg-[#4E342E] rounded-[45px] p-1 shadow-xl overflow-hidden aspect-[3/4] w-full relative border-4 border-[#D7CCC8] transition-transform hover:-translate-y-2">
-                  
-                  <div className="w-full h-full bg-[#5D4037] rounded-[40px] flex items-center justify-center overflow-hidden">
-                    <span className="text-6xl grayscale opacity-20 group-hover:opacity-40 transition-opacity">📖</span>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-linear-to-t from-[#4E342E] via-[#4E342E]/40 to-transparent opacity-90" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
-                    <h3 className="text-xl font-black text-white mb-2 uppercase italic">
-                      {materi.title}
-                    </h3>
-                    <p className="text-[9px] text-white/80 leading-tight font-medium uppercase tracking-widest line-clamp-3">
-                      {materi.description || dummyText}
-                    </p>
-                    <div className="mt-4 pt-2 border-t border-white/10">
-                      <span className="text-[10px] font-black text-[#F3D06D] uppercase tracking-widest group-hover:underline">Pelajari →</span>
+            {materiList.map((materi) => {
+              // Check if we have an image mapped for this specific slug
+              const coverImage = COVER_IMAGES[materi.slug];
+
+              return (
+                <Link key={materi.id} href={`/materi/${materi.slug}`} className="group relative w-full flex justify-center">
+                  <div className="bg-[#4E342E] rounded-[45px] p-1 shadow-xl overflow-hidden aspect-[3/4] w-full relative border-4 border-[#D7CCC8] transition-transform hover:-translate-y-2">
+                    
+                    <div className="w-full h-full bg-[#5D4037] rounded-[40px] flex items-center justify-center overflow-hidden relative">
+                      {coverImage ? (
+                        /* If image exists in the dictionary, show the image */
+                        <Image 
+                          src={coverImage} 
+                          alt={`Cover for ${materi.title}`}
+                          fill
+                          className="object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        />
+                      ) : (
+                        /* If no image exists, fallback to your original Book Emoji UI */
+                        <span className="text-6xl grayscale opacity-20 group-hover:opacity-40 transition-opacity">📖</span>
+                      )}
+                    </div>
+                    
+                    <div className="absolute inset-0 bg-linear-to-t from-[#4E342E] via-[#4E342E]/40 to-transparent opacity-90" />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                      <h3 className="text-xl font-black text-white mb-2 uppercase italic">
+                        {materi.title}
+                      </h3>
+                      <p className="text-[9px] text-white/80 leading-tight font-medium uppercase tracking-widest line-clamp-3">
+                        {materi.description || ""}
+                      </p>
+                      <div className="mt-4 pt-2 border-t border-white/10">
+                        <span className="text-[10px] font-black text-[#F3D06D] uppercase tracking-widest group-hover:underline">Pelajari →</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
 
             {materiList.length === 0 && (
               <div className="col-span-full py-20 text-center border-2 border-dashed border-[#D7CCC8] rounded-[45px]">
@@ -85,7 +108,8 @@ export default async function FiturPage() {
           <div className="text-center mb-12">
             <h2 className="text-5xl font-black text-[#4E342E] uppercase italic mb-4">Game Interaktif</h2>
             <p className="text-sm max-w-lg mx-auto text-[#8D6E63] font-medium leading-relaxed">
-Uji pemahamanmu tentang Tembang Kidung melalui kuis interaktif yang dirancang untuk membuat belajar terasa menyenangkan. Setiap jawaban benar memberikan Poin Pengalaman (XP) yang akan menaikkan levelmu.            </p>
+              Uji pemahamanmu tentang Tembang Kidung melalui kuis interaktif yang dirancang untuk membuat belajar terasa menyenangkan. Setiap jawaban benar memberikan Poin Pengalaman (XP) yang akan menaikkan levelmu.
+            </p>
           </div>
 
           <div className="aspect-video w-full bg-[#F8F5F2] rounded-[45px] p-2 shadow-2xl relative border-4 border-[#D7CCC8] overflow-hidden group flex items-center justify-center">

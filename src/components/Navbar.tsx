@@ -38,14 +38,16 @@ export default async function Navbar() {
   ];
 
   return (
-    <nav className="flex justify-between items-center px-12 py-5 bg-white sticky top-0 z-50 shadow-sm">
+    <nav className="flex justify-between items-center px-12 bg-white sticky top-0 z-50 shadow-sm">
       <Link href="/" className="flex items-center gap-3">
-        <span className="font-black text-2xl uppercase tracking-tighter text-[#4E342E]">
-          Dharma Gita
-        </span>
+        <img 
+            src="/images/dharma-gita-logo-text.png" 
+            alt="Dharma Gita Logo Text" 
+            className="w-40 select-none pointer-events-none drop-shadow-md" 
+        />
       </Link>
 
-      <div className="flex items-center gap-10 text-[11px] font-black uppercase tracking-widest">
+      <div className="flex items-center gap-10 text-[11px] py-5 font-black uppercase tracking-widest">
         {navLinks.map((link) => (
           <div key={link.name} className="relative group flex items-center gap-1 cursor-pointer">
             <Link 

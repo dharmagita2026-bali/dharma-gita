@@ -15,11 +15,11 @@ export default function TentangPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t-2 border-[#F5F5F5] pt-12">
             <div className="aspect-square bg-[#FDFBF9] border-4 border-[#D7CCC8] rounded-[45px] relative flex items-center justify-center overflow-hidden shadow-sm group">
-              <svg className="absolute inset-0 w-full h-full text-[#F5F5F5] group-hover:scale-105 transition-transform duration-500" preserveAspectRatio="none">
-                <line x1="0" y1="0" x2="100%" y2="100%" stroke="currentColor" strokeWidth="2" />
-                <line x1="100%" y1="0" x2="0" y2="100%" stroke="currentColor" strokeWidth="2" />
-              </svg>
-              <span className="absolute text-[10px] font-black uppercase tracking-[0.3em] text-[#A1887F] italic">Visual Frame</span>
+              <img 
+                src="images/latar-belakang1.jpeg"
+                alt="Latar Belakang" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
             </div>
 
             <div className="space-y-8">
@@ -29,11 +29,19 @@ export default function TentangPage() {
               </p>
               
               <div className="grid grid-cols-2 gap-6">
-                <div className="aspect-video bg-[#FDFBF9] border-2 border-[#D7CCC8] rounded-[25px] relative flex items-center justify-center overflow-hidden shadow-sm">
-                   <svg className="w-full h-full text-[#F5F5F5]"><line x1="0" y1="0" x2="100%" y2="100%" stroke="currentColor" strokeWidth="1.5"/><line x1="100%" y1="0" x2="0" y2="100%" stroke="currentColor" strokeWidth="1.5"/></svg>
+                <div className="aspect-video bg-[#FDFBF9] border-2 border-[#D7CCC8] rounded-[25px] relative flex items-center justify-center overflow-hidden shadow-sm group">
+                  <img 
+                    src="images/latar-belakang2.jpeg"
+                    alt="Latar Belakang" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                 </div>
-                <div className="aspect-video bg-[#FDFBF9] border-2 border-[#D7CCC8] rounded-[25px] relative flex items-center justify-center overflow-hidden shadow-sm">
-                   <svg className="w-full h-full text-[#F5F5F5]"><line x1="0" y1="0" x2="100%" y2="100%" stroke="currentColor" strokeWidth="1.5"/><line x1="100%" y1="0" x2="0" y2="100%" stroke="currentColor" strokeWidth="1.5"/></svg>
+                <div className="aspect-video bg-[#FDFBF9] border-2 border-[#D7CCC8] rounded-[25px] relative flex items-center justify-center overflow-hidden shadow-sm group">
+                  <img 
+                    src="images/latar-belakang3.jpeg"
+                    alt="Latar Belakang" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                 </div>
               </div>
             </div>
@@ -95,29 +103,12 @@ export default function TentangPage() {
           </h2>
           
           <div className="w-48 h-48 bg-[#F8F5F2] border-4 border-[#D7CCC8] rounded-[45px] mx-auto flex flex-col items-center justify-center shadow-sm group hover:rotate-2 transition-transform">
-            <img src="/images/logo-music.png" alt="Music Logo" className="w-16 h-16 object-contain mb-2" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#4E342E]">Logo</span>
+            <img src="/images/dharma-gita-logo.png" alt="Music Logo" className="object-contain" />
           </div>
 
           <p className="text-sm leading-relaxed text-[#8D6E63] font-medium italic max-w-2xl mx-auto">
-            &ldquo;dummyTexT&rdquo;
+            &ldquo;Secara etimologi, istilah Dharma Gita berasal dari bahasa Sanskerta, yang terdiri dari dua kata, yaitu &rdquo;Dharma&rdquo; yang berarti kebenaran, agama, atau kewajiban suci, dan &rdquo;Gita&rdquo; yang berarti nyanyian atau lagu. Dengan demikian, Dharma Gita dapat didefinisikan sebagai nyanyian suci keagamaan yang melantunkan nilai-nilai kebenaran (Weda) dan digunakan sebagai pengiring dalam pelaksanaan upacara Yadnya umat Hindu&rdquo;
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 text-left border-t-2 border-[#F5F5F5]">
-            {['Informasi Tambahan', 'Informasi Tambahan'].map((title, i) => (
-              <div key={i} className="space-y-4">
-                <h4 className="font-black uppercase text-sm tracking-wide text-[#4E342E] italic">{title}</h4>
-                <ul className="space-y-4">
-                  {[1, 2, 3].map(item => (
-                    <li key={item} className="flex gap-4 text-[10px] text-[#A1887F] font-bold uppercase tracking-wider leading-snug items-start">
-                      <span className="h-4 w-[3px] bg-[#D4A017] rounded-full mt-0.5 flex-shrink-0" />
-                      <span>dummyText</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

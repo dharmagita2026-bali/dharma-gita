@@ -7,11 +7,12 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-12 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         
         <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <img src="/images/logo-music.png" alt="Logo" className="w-12 h-12 object-contain" />
-            <span className="font-black text-2xl uppercase tracking-tighter text-[#4E342E] italic">
-              Dharma Gita
-            </span>
+          <div className="mb-3">
+            <img 
+              src="/images/dharma-gita-logo-text.png" 
+              alt="Dharma Gita Logo Text" 
+              className="w-40 select-none pointer-events-none drop-shadow-md" 
+            />
           </div>
           <p className="text-[11px] text-[#8D6E63] font-medium leading-relaxed max-w-xs uppercase">
             Platform e-learning untuk melestarikan seni kidung Bali melalui teknologi yang mudah diakses semua kalangan.
