@@ -16,7 +16,7 @@ export default function TentangPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t-2 border-[#F5F5F5] pt-12">
             <div className="aspect-square bg-[#FDFBF9] border-4 border-[#D7CCC8] rounded-[45px] relative flex items-center justify-center overflow-hidden shadow-sm group">
               <img 
-                src="images/latar-belakang1.jpeg"
+                src="images/latar-belakang3.jpeg"
                 alt="Latar Belakang" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
               />
@@ -38,7 +38,7 @@ export default function TentangPage() {
                 </div>
                 <div className="aspect-video bg-[#FDFBF9] border-2 border-[#D7CCC8] rounded-[25px] relative flex items-center justify-center overflow-hidden shadow-sm group">
                   <img 
-                    src="images/latar-belakang3.jpeg"
+                    src="images/latar-belakang1.jpeg"
                     alt="Latar Belakang" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />

@@ -8,8 +8,9 @@ export default async function HomePage() {
       <main className="max-w-full mx-auto">
         
         <section className="relative grid grid-cols-1 lg:grid-cols-12 min-h-[600px] bg-linear-to-b from-[#4E342E] to-[#8D6E63] pl-12 pr-0 overflow-hidden items-center">
-          <div className="py-12 lg:py-16 flex flex-col justify-center items-center lg:items-start z-10 max-w-xl mx-auto lg:mx-0 w-full lg:col-span-5 lg:ml-16">            
-            <div className="w-full max-w-[360px] md:max-w-[420px] lg:max-w-[460px] mb-2 flex justify-center lg:justify-start transform lg:-translate-y-4">
+          <div className="py-12 lg:py-16 flex flex-col justify-center items-center lg:items-start z-10 max-w-xl mx-auto lg:mx-0 w-full lg:col-span-5 lg:ml-30 xl:ml-40">            
+            
+            <div className="w-full max-w-[380px] md:max-w-[440px] lg:max-w-[480px] mb-2 flex justify-center lg:justify-start transform lg:-translate-y-4">
               <img 
                 src="/images/dharma-gita-hero-title.png" 
                 alt="Dharma Gita Main Title" 

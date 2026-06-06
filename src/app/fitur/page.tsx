@@ -37,10 +37,6 @@ export default async function FiturPage() {
               Pelajari Tembang Kidung Bali secara terstruktur dari empat klasifikasi utama — Sekar Rare, Sekar Alit, Sekar Madya, hingga Sekar Agung. Setiap materi dilengkapi teks lirik, terjemahan makna (artos), audio contoh lantunan, serta penjelasan fungsi penggunaannya dalam upacara Yadnya.
             </p>
           </div>
-          
-          <div className="absolute right-[-10%] top-0 opacity-10 pointer-events-none">
-            <h1 className="text-[20rem] font-black uppercase italic text-white">DG</h1>
-          </div>
         </section>
 
         <section id="materi" className="py-24 bg-[#F8F5F2] border-t border-[#D7CCC8] px-12">
@@ -55,7 +51,6 @@ export default async function FiturPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center max-w-7xl mx-auto">
             {materiList.map((materi) => {
-              // Check if we have an image mapped for this specific slug
               const coverImage = COVER_IMAGES[materi.slug];
 
               return (
@@ -64,7 +59,6 @@ export default async function FiturPage() {
                     
                     <div className="w-full h-full bg-[#5D4037] rounded-[40px] flex items-center justify-center overflow-hidden relative">
                       {coverImage ? (
-                        /* If image exists in the dictionary, show the image */
                         <Image 
                           src={coverImage} 
                           alt={`Cover for ${materi.title}`}
@@ -73,7 +67,6 @@ export default async function FiturPage() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                         />
                       ) : (
-                        /* If no image exists, fallback to your original Book Emoji UI */
                         <span className="text-6xl grayscale opacity-20 group-hover:opacity-40 transition-opacity">📖</span>
                       )}
                     </div>
