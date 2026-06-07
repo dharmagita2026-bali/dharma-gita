@@ -16,53 +16,53 @@ export default async function KidungPlayerPage({
   if (!kidung) return notFound();
 
   return (
-    <main className="min-h-screen bg-white text-[#4E342E] p-8 pt-24 font-sans">
-      <div className="max-w-4xl mx-auto space-y-12">
+    <main className="min-h-screen bg-white text-[#4E342E] p-6 md:p-12 pt-20 md:pt-24 font-sans">
+      <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
         <div>
           <Link 
             href={`/materi/${slug}`}
-            className="inline-block bg-white text-[#4E342E] border-2 border-[#4E342E] px-6 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-[#4E342E] hover:text-white transition-all shadow-xs italic"
+            className="inline-block bg-white text-[#4E342E] border-2 border-[#4E342E] px-5 py-2 md:px-6 md:py-2.5 rounded-full font-black text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-[#4E342E] hover:text-white transition-all shadow-xs italic"
           >
             ← Kembali ke {slug.replace('-', ' ')}
           </Link>
         </div>
 
-        <div className="border-b-4 border-[#D7CCC8] pb-8">
-          <h1 className="text-5xl font-black uppercase tracking-tighter italic text-[#4E342E] leading-tight">
+        <div className="border-b-4 border-[#D7CCC8] pb-6 md:pb-8">
+          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic text-[#4E342E] leading-tight">
             {kidung.title}
           </h1>
-          <p className="text-[10px] text-[#A1887F] mt-3 uppercase font-black tracking-widest bg-[#F8F5F2] inline-block px-4 py-1 rounded-full border border-[#EFEBE9]">
+          <p className="text-[9px] md:text-[10px] text-[#A1887F] mt-3 md:mt-4 uppercase font-black tracking-widest bg-[#F8F5F2] inline-block px-4 py-1 rounded-full border border-[#EFEBE9]">
             Dharma Gita / {slug.replace('-', ' ')}
           </p>
         </div>
 
-        <div className="border-4 border-[#D7CCC8] p-8 bg-[#F8F5F2] rounded-[45px] shadow-sm relative overflow-hidden group focus-within:border-[#D4A017] transition-colors">
-          <div className="absolute top-[-20px] right-[-10px] text-8xl text-[#4E342E]/5 font-black select-none pointer-events-none italic">
+        <div className="border-4 border-[#D7CCC8] p-6 md:p-8 bg-[#F8F5F2] rounded-[35px] md:rounded-[45px] shadow-sm relative overflow-hidden group focus-within:border-[#D4A017] transition-colors">
+          <div className="absolute top-[-10px] right-[-5px] md:top-[-20px] md:right-[-10px] text-6xl md:text-8xl text-[#4E342E]/5 font-black select-none pointer-events-none italic leading-none">
             🔊
           </div>
-          <p className="text-[10px] font-black uppercase mb-4 tracking-widest text-[#8D6E63]">Audio Player</p>
-          <audio controls className="w-full h-12 accent-[#4E342E] rounded-full">
+          <p className="text-[9px] md:text-[10px] font-black uppercase mb-4 tracking-widest text-[#8D6E63]">Audio Player</p>
+          <audio controls className="w-full h-10 md:h-12 accent-[#4E342E] rounded-full relative z-10">
             <source src={kidung.audioUrl} type="audio/mpeg" />
             Browser anda tidak mendukung berkas audio ini.
           </audio>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           
-          <div className="space-y-6">
-            <h2 className="text-xl font-black uppercase border-b-2 border-[#F5F5F5] pb-3 italic text-[#4E342E]">
+          <div className="space-y-4 md:space-y-6">
+            <h2 className="text-lg md:text-xl font-black uppercase border-b-2 border-[#F5F5F5] pb-3 italic text-[#4E342E]">
               Lirik Kidung
             </h2>
-            <div className="text-sm leading-relaxed whitespace-pre-wrap font-serif bg-[#FDFBF9] p-8 border-l-4 border-[#D4A017] rounded-r-[30px] border-y border-r border-[#D7CCC8]/60 text-[#5D4037] shadow-xs">
+            <div className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-serif bg-[#FDFBF9] p-6 md:p-8 border-l-4 border-[#D4A017] rounded-r-[25px] md:rounded-r-[30px] border-y border-r border-[#D7CCC8]/60 text-[#5D4037] shadow-xs">
               {kidung.lyrics}
             </div>
           </div>
 
-          <div className="space-y-6 flex flex-col justify-between">
-            <h2 className="text-xl font-black uppercase border-b-2 border-[#F5F5F5] pb-3 italic text-[#4E342E]">
+          <div className="space-y-4 md:space-y-6 flex flex-col">
+            <h2 className="text-lg md:text-xl font-black uppercase border-b-2 border-[#F5F5F5] pb-3 italic text-[#4E342E]">
                 Deskripsi
             </h2>
-            <p className="text-sm text-[#8D6E63] font-medium leading-relaxed text-justify">
+            <p className="text-[11px] md:text-sm text-[#8D6E63] font-medium leading-relaxed text-justify">
                 {kidung.description}
             </p>
           </div>

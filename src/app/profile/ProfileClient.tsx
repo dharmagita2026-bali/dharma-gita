@@ -14,7 +14,6 @@ interface UserProps {
   };
 }
 
-// 💥 Unified Prestige Rank calculations to keep the UI perfectly synced
 const getPrestigeData = (totalExp: number) => {
   if (totalExp < 500) {
     return {
@@ -52,7 +51,6 @@ export default function ProfileClient({ user }: UserProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  // 💥 Dynamic prestige extraction replaces the old flat * 100 logic
   const prestige = getPrestigeData(user.exp);
   const progressPercentage = Math.round((prestige.currentTierProgress / prestige.tierTarget) * 100);
 
@@ -82,29 +80,30 @@ export default function ProfileClient({ user }: UserProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF9] flex">
-      <aside className="w-72 border-r border-[#D7CCC8] bg-white p-8 flex flex-col justify-between flex-shrink-0">
-        <div className="space-y-10">
-          <div className="text-center space-y-3">
-            <div className="w-24 h-24 border-2 border-[#4E342E] mx-auto bg-[#FDFBF9] rounded-3xl flex items-center justify-center overflow-hidden shadow-sm">
+    <div className="min-h-screen bg-[#FDFBF9] flex flex-col md:flex-row">
+      <aside className="w-full md:w-72 border-b md:border-b-0 md:border-r border-[#D7CCC8] bg-white p-6 md:p-8 flex flex-col justify-between flex-shrink-0 gap-6 md:gap-0">
+        <div className="space-y-6 md:space-y-10">
+          
+          <div className="flex flex-row md:flex-col items-center text-left md:text-center gap-4 md:gap-3">
+            <div className="w-16 h-16 md:w-24 md:h-24 shrink-0 border-2 border-[#4E342E] bg-[#FDFBF9] rounded-2xl md:rounded-3xl flex items-center justify-center overflow-hidden shadow-sm">
               {previewUrl ? (
                 <img src={previewUrl} alt="Avatar" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-4xl">👤</span>
+                <span className="text-3xl md:text-4xl">👤</span>
               )}
             </div>
-            <div className="space-y-0.5">
+            <div className="space-y-0.5 flex-1">
               <span className={`text-[9px] font-black uppercase tracking-wider block ${prestige.color}`}>
                 {prestige.title}
               </span>
-              <p className="font-black uppercase text-xs tracking-widest text-[#4E342E] italic">
+              <p className="font-black uppercase text-xs md:text-sm tracking-widest text-[#4E342E] italic">
                 @{user.username}
               </p>
             </div>
           </div>
           
           <div className="space-y-2">
-            <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-[#8D6E63]">
+            <div className="flex justify-between text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#8D6E63]">
               <span>Materi Lvl {user.level}</span>
               <span>{user.exp} EXP</span>
             </div>
@@ -119,14 +118,14 @@ export default function ProfileClient({ user }: UserProps) {
             </span>
           </div>
 
-          <nav className="space-y-3 text-[10px] font-black uppercase tracking-[0.2em]">
+          <nav className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-4 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em]">
             <div 
               onClick={() => router.push('/game')}
-              className="p-4 border-2 border-[#D7CCC8] text-[#4E342E] hover:bg-[#FDFBF9] rounded-2xl cursor-pointer text-center transition-all"
+              className="p-3 md:p-4 border-2 border-[#D7CCC8] text-[#4E342E] hover:bg-[#FDFBF9] rounded-xl md:rounded-2xl cursor-pointer text-center transition-all flex items-center justify-center"
             >
               Dashboard Arena
             </div>
-            <div className="p-4 bg-[#4E342E] text-white rounded-2xl cursor-pointer text-center shadow-md transform italic">
+            <div className="p-3 md:p-4 bg-[#4E342E] text-white rounded-xl md:rounded-2xl cursor-pointer text-center shadow-md transform italic flex items-center justify-center">
               Profil Saya
             </div>
           </nav>
@@ -134,57 +133,57 @@ export default function ProfileClient({ user }: UserProps) {
 
         <button 
           onClick={() => signOut({ callbackUrl: "/" })}
-          className="w-full border-2 border-red-100 text-red-500 py-4 rounded-2xl text-[10px] font-black uppercase hover:bg-red-500 hover:text-white transition-all italic"
+          className="w-full mt-4 md:mt-0 border-2 border-red-100 text-red-500 py-3.5 md:py-4 rounded-xl md:rounded-2xl text-[10px] font-black uppercase hover:bg-red-500 hover:text-white transition-all italic"
         >
           Logout
         </button>
       </aside>
 
-      <main className="flex-1 p-16 space-y-10 overflow-y-auto">
-        <header className="border-b-2 border-[#D7CCC8] pb-6">
-          <h1 className="text-5xl font-black text-[#4E342E] uppercase italic tracking-tighter">Profil</h1>
-          <p className="text-[11px] text-[#8D6E63] uppercase font-black tracking-widest mt-2">
+      <main className="flex-1 p-6 md:p-10 lg:p-16 space-y-8 md:space-y-10 overflow-y-auto">
+        <header className="border-b-2 border-[#D7CCC8] pb-4 md:pb-6 text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-black text-[#4E342E] uppercase italic tracking-tighter">Profil</h1>
+          <p className="text-[10px] md:text-[11px] text-[#8D6E63] uppercase font-black tracking-widest mt-1 md:mt-2">
             Kelola identitas dan keamanan akun anda
           </p>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Section: Profile */}
-          <section className="bg-white rounded-[35px] border-2 border-[#D7CCC8] shadow-sm overflow-hidden">
-            <div className="bg-[#F8F5F2] border-b-2 border-[#D7CCC8] px-8 py-4 text-[11px] font-black uppercase text-[#4E342E] italic">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-10">
+          
+          <section className="bg-white rounded-[30px] md:rounded-[35px] border-2 border-[#D7CCC8] shadow-sm overflow-hidden">
+            <div className="bg-[#F8F5F2] border-b-2 border-[#D7CCC8] px-6 md:px-8 py-3 md:py-4 text-[10px] md:text-[11px] font-black uppercase text-[#4E342E] italic text-center md:text-left">
               Informasi Dasar
             </div>
-            <div className="p-10 space-y-8">
-              <div className="aspect-video w-full border-2 border-[#F5F5F5] bg-[#FDFBF9] rounded-2xl flex items-center justify-center overflow-hidden">
+            <div className="p-6 md:p-10 space-y-6 md:space-y-8">
+              <div className="aspect-video h-40 md:h-auto w-full border-2 border-[#F5F5F5] bg-[#FDFBF9] rounded-2xl flex items-center justify-center overflow-hidden">
                 {previewUrl ? (
                   <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
                 ) : (
                   <div className="flex flex-col items-center gap-2 opacity-30">
-                    <span className="text-4xl">🖼️</span>
-                    <span className="text-[10px] font-black uppercase tracking-widest">Belum ada foto</span>
+                    <span className="text-3xl md:text-4xl">🖼️</span>
+                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest">Belum ada foto</span>
                   </div>
                 )}
               </div>
 
-              <div className="space-y-3">
-                <label className="text-[10px] font-black text-[#8D6E63] uppercase tracking-widest">Nama Lengkap</label>
+              <div className="space-y-2 md:space-y-3">
+                <label className="text-[9px] md:text-[10px] font-black text-[#8D6E63] uppercase tracking-widest">Nama Lengkap</label>
                 <input 
                   type="text" 
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full border-2 border-[#F5F5F5] bg-[#FDFBF9] p-4 rounded-2xl text-sm font-bold text-[#4E342E] focus:border-[#D4A017] outline-none transition-all" 
+                  className="w-full border-2 border-[#F5F5F5] bg-[#FDFBF9] p-3 md:p-4 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold text-[#4E342E] focus:border-[#D4A017] outline-none transition-all" 
                 />
               </div>
               
-              <div className="space-y-3">
-                <label className="text-[10px] font-black text-[#8D6E63] uppercase tracking-widest">Ganti Foto</label>
-                <div className="border-2 border-[#F5F5F5] p-3 rounded-2xl flex gap-3 items-center bg-[#FDFBF9]">
+              <div className="space-y-2 md:space-y-3">
+                <label className="text-[9px] md:text-[10px] font-black text-[#8D6E63] uppercase tracking-widest">Ganti Foto</label>
+                <div className="border-2 border-[#F5F5F5] p-2 md:p-3 rounded-xl md:rounded-2xl flex gap-2 md:gap-3 items-center bg-[#FDFBF9]">
                   <input 
                     type="file" 
                     ref={fileInputRef}
                     accept="image/*"
                     onChange={handleFileChange}
-                    className="text-[10px] flex-1 cursor-pointer font-bold text-[#A1887F]" 
+                    className="text-[9px] md:text-[10px] flex-1 cursor-pointer font-bold text-[#A1887F] w-full" 
                   />
                   <button 
                     onClick={() => { setPreviewUrl(null); setSelectedFile(null); }}
@@ -198,45 +197,45 @@ export default function ProfileClient({ user }: UserProps) {
               <button 
                 onClick={handleSaveProfile}
                 disabled={isSaving}
-                className="w-full bg-linear-to-b from-[#F3D06D] to-[#D4A017] text-[#4E342E] py-4 rounded-full text-[11px] font-black uppercase shadow-xl hover:brightness-110 transition-all disabled:opacity-50 italic"
+                className="w-full bg-linear-to-b from-[#F3D06D] to-[#D4A017] text-[#4E342E] py-3.5 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase shadow-xl hover:brightness-110 transition-all disabled:opacity-50 italic"
               >
                 {isSaving ? "Menyimpan..." : "Update Profil"}
               </button>
             </div>
           </section>
 
-          {/* Section: Keamanan */}
-          <section className="bg-white rounded-[35px] border-2 border-[#D7CCC8] shadow-sm overflow-hidden h-fit">
-            <div className="bg-[#F8F5F2] border-b-2 border-[#D7CCC8] px-8 py-4 text-[11px] font-black uppercase text-[#4E342E] italic">
+          <section className="bg-white rounded-[30px] md:rounded-[35px] border-2 border-[#D7CCC8] shadow-sm overflow-hidden h-fit">
+            <div className="bg-[#F8F5F2] border-b-2 border-[#D7CCC8] px-6 md:px-8 py-3 md:py-4 text-[10px] md:text-[11px] font-black uppercase text-[#4E342E] italic text-center md:text-left">
               Keamanan Akun
             </div>
-            <div className="p-10 space-y-6">
+            <div className="p-6 md:p-10 space-y-5 md:space-y-6">
               {[
                 { label: "Password Lama", val: oldPassword, set: setOldPassword },
                 { label: "Password Baru", val: newPassword, set: setNewPassword },
                 { label: "Konfirmasi Password", val: confirmPassword, set: setConfirmPassword }
               ].map((field) => (
-                <div key={field.label} className="space-y-3">
-                  <label className="text-[10px] font-black text-[#8D6E63] uppercase tracking-widest">{field.label}</label>
+                <div key={field.label} className="space-y-2 md:space-y-3">
+                  <label className="text-[9px] md:text-[10px] font-black text-[#8D6E63] uppercase tracking-widest">{field.label}</label>
                   <input 
                     type="password" 
                     value={field.val}
                     onChange={(e) => field.set(e.target.value)}
                     placeholder="••••••••" 
-                    className="w-full border-2 border-[#F5F5F5] bg-[#FDFBF9] p-4 rounded-2xl text-sm outline-none focus:border-[#D4A017] transition-all" 
+                    className="w-full border-2 border-[#F5F5F5] bg-[#FDFBF9] p-3 md:p-4 rounded-xl md:rounded-2xl text-xs md:text-sm outline-none focus:border-[#D4A017] transition-all" 
                   />
                 </div>
               ))}
-              <div className="flex justify-end pt-4">
+              <div className="flex justify-center md:justify-end pt-4">
                 <button 
                   disabled={isSavingPassword}
-                  className="bg-[#4E342E] text-white px-10 py-3 rounded-full text-[10px] font-black uppercase shadow-lg hover:brightness-110 transition-all active:scale-95"
+                  className="w-full md:w-auto bg-[#4E342E] text-white px-8 md:px-10 py-3.5 md:py-3 rounded-full text-[9px] md:text-[10px] font-black uppercase shadow-lg hover:brightness-110 transition-all active:scale-95"
                 >
                   Simpan Password
                 </button>
               </div>
             </div>
           </section>
+
         </div>
       </main>
     </div>

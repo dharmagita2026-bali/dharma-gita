@@ -78,17 +78,17 @@ export default function KidungDialog({ isOpen, onClose, onSubmit, materiId, init
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-6">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
       <div className="absolute inset-0 bg-[#4E342E]/60 backdrop-blur-md" onClick={onClose} />
-      <div className="relative bg-white w-full max-w-2xl rounded-[40px] border-2 border-[#D7CCC8] shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in fade-in zoom-in duration-200">
+      <div className="relative bg-white w-full max-w-2xl rounded-[28px] sm:rounded-[40px] border-2 border-[#D7CCC8] shadow-2xl overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[90vh] animate-in fade-in zoom-in duration-200">
         
-        <header className="bg-[#F8F5F2] p-8 border-b-2 border-[#D7CCC8] flex-shrink-0">
-          <h2 className="text-2xl font-black text-[#4E342E] uppercase italic tracking-tighter">
+        <header className="bg-[#F8F5F2] p-6 sm:p-8 border-b-2 border-[#D7CCC8] flex-shrink-0">
+          <h2 className="text-xl sm:text-2xl font-black text-[#4E342E] uppercase italic tracking-tighter">
             {initialData ? 'Edit Kidung' : '+ Tambah Kidung Baru'}
           </h2>
         </header>
 
-        <div className="p-10 space-y-6 overflow-y-auto flex-1">
+        <div className="p-6 sm:p-10 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
           <div className="space-y-2">
             <label className="text-[10px] font-black text-[#8D6E63] uppercase tracking-[0.2em]">Judul Kidung</label>
             <input 
@@ -114,9 +114,9 @@ export default function KidungDialog({ isOpen, onClose, onSubmit, materiId, init
               />
               <label 
                 htmlFor="kidung-audio-upload"
-                className="flex items-center justify-between w-full bg-[#FDFBF9] border-2 border-dashed border-[#D7CCC8] rounded-2xl p-4 cursor-pointer hover:bg-white transition-all"
+                className="flex items-center justify-between w-full bg-[#FDFBF9] border-2 border-dashed border-[#D7CCC8] rounded-2xl p-4 cursor-pointer hover:bg-white transition-all gap-4"
               >
-                <span className="text-xs font-bold text-[#A1887F] truncate pr-4">
+                <span className="text-xs font-bold text-[#A1887F] truncate pr-2">
                   {file ? file.name : (initialData ? "Audio tersimpan (klik untuk ganti)" : "Pilih file audio (mp3, wav, ogg)")}
                 </span>
                 <span className="bg-[#4E342E] text-white px-4 py-2 rounded-xl text-[9px] font-black uppercase flex-shrink-0">Browse</span>
@@ -145,14 +145,14 @@ export default function KidungDialog({ isOpen, onClose, onSubmit, materiId, init
           </div>
         </div>
 
-        <footer className="p-8 bg-[#F8F5F2] border-t-2 border-[#D7CCC8] flex gap-4 flex-shrink-0">
-          <button onClick={onClose} className="flex-1 p-4 rounded-full text-[10px] font-black uppercase text-[#8D6E63] border-2 border-[#D7CCC8] hover:bg-white transition-all">
+        <footer className="p-6 sm:p-8 bg-[#F8F5F2] border-t-2 border-[#D7CCC8] flex gap-3 sm:gap-4 flex-shrink-0">
+          <button onClick={onClose} className="flex-1 p-3.5 sm:p-4 rounded-full text-[10px] font-black uppercase text-[#8D6E63] border-2 border-[#D7CCC8] hover:bg-white transition-all">
             Batal
           </button>
           <button 
             onClick={handleSave} 
             disabled={loading || (!initialData && !file) || !formData.title || !formData.description || !formData.lyrics}
-            className="flex-1 p-4 rounded-full text-[10px] font-black uppercase bg-[#D4A017] text-white shadow-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:grayscale"
+            className="flex-1 p-3.5 sm:p-4 rounded-full text-[10px] font-black uppercase bg-[#D4A017] text-white shadow-xl hover:brightness-110 transition-all disabled:opacity-50 disabled:grayscale"
           >
             {loading ? 'Sedang Memproses...' : 'Simpan Kidung'}
           </button>
