@@ -123,11 +123,11 @@ export default function TentangPage() {
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b-2 border-[#F5F5F5] pb-6">
                 <div className="space-y-1 text-center sm:text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#A1887F]">Koordinat Lokasi</p>
-                  <p className="text-xs font-mono font-bold text-[#4E342E]">-8.504811, 115.551592</p>
+                  <p className="text-xs font-mono font-bold text-[#4E342E]">-8.380125, 114.987057</p>
                 </div>
                 
                 <a 
-                  href="https://maps.google.com/?q=-8.504811,115.551592" 
+                  href="https://maps.google.com/?q=-8.380125,114.987057" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto bg-linear-to-b from-[#F3D06D] to-[#D4A017] text-[#5D4037] px-8 py-3.5 sm:py-3 rounded-full font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all text-center inline-block"
@@ -138,7 +138,7 @@ export default function TentangPage() {
 
               <div className="aspect-square sm:aspect-video md:aspect-[21/9] bg-[#FDFBF9] border-2 border-[#EFEBE9] relative rounded-[20px] md:rounded-[35px_100px_45px_120px] overflow-hidden shadow-inner">
                 <iframe
-                  src="https://maps.google.com/maps?q=-8.504811,115.551592&t=&z=15&ie=UTF8&iwloc=&output=embed&g=0"
+                  src="https://maps.google.com/maps?q=-8.380125,114.987057&t=&z=15&ie=UTF8&iwloc=&output=embed&g=0"
                   className="w-full h-full border-0 absolute inset-0"
                   allowFullScreen
                   loading="lazy"
