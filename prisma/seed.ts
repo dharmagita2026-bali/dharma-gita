@@ -12,16 +12,6 @@ async function main() {
     },
   });
 
-  await prisma.kidung.create({
-    data: {
-      title: 'Pupuh Mijil',
-      description: 'Mijil memiliki watak yang bersifat bersungguh-sungguh...',
-      lyrics: 'Lirik Pupuh Mijil: ... (isi lirik di sini) ...',
-      audioUrl: 'https://your-storage.com/mijil.mp3',
-      materiId: sekarAlit.id,
-    },
-  });
-
   console.log('Seed data created successfully! ✨');
 }
 
