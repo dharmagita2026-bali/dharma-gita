@@ -14,7 +14,7 @@ export default function Footer() {
               className="w-32 md:w-40 select-none pointer-events-none drop-shadow-md" 
             />
           </div>
-          <p className="text-[11px] text-[#8D6E63] font-medium leading-relaxed max-w-xs uppercase">
+          <p className="text-xs text-[#8D6E63] font-medium leading-relaxed max-w-xs">
             Platform e-learning untuk melestarikan seni kidung Bali melalui teknologi yang mudah diakses semua kalangan.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function Footer() {
           <h4 className="font-black uppercase text-xs tracking-[0.2em] text-[#4E342E]">
             Kontak & Bantuan
           </h4>
-          <div className="text-[11px] space-y-4 text-[#8D6E63] font-bold uppercase tracking-wider flex flex-col items-center md:items-start">
+          <div className="text-xs space-y-4 text-[#8D6E63] font-bold tracking-wider flex flex-col items-center md:items-start">
             <p className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 max-w-[250px] md:max-w-none">
                <span className="w-4 h-4 border-2 border-[#D4A017] rounded-full flex-shrink-0 mt-0.5 hidden md:block" />
                Banjar Dinas Galiukir Kaja, Kecamatan Pupuan, Kabupaten Tabanan.

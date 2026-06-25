@@ -90,7 +90,7 @@ export default function TentangPage() {
 
           </div>
           
-          <p className="text-[10px] md:text-[11px] text-[#A1887F] font-bold uppercase tracking-wider leading-relaxed text-justify max-w-4xl mx-auto bg-white border border-[#EFEBE9] p-6 md:p-8 rounded-[20px] md:rounded-[25px]">
+          <p className="text-[11px] md:text-[11px] text-[#A1887F] font-bold tracking-wider leading-relaxed text-justify max-w-4xl mx-auto bg-white border border-[#EFEBE9] p-6 md:p-8 rounded-[20px] md:rounded-[25px]">
             Di luar pelestarian budaya, belajar kidung melatih konsentrasi, kepekaan musikal, dan pengenalan bahasa Kawi secara alami. Di banyak desa adat, kidung dilantunkan bersama — dan di situlah kekuatannya: orang-orang dari berbagai usia dan latar belakang duduk bersama, bernyanyi dalam satu suara, dan merasa benar-benar terhubung satu sama lain.
           </p>
         </div>
@@ -188,7 +188,7 @@ export default function TentangPage() {
                   <p className="text-xs md:text-sm font-black uppercase text-[#4E342E] tracking-wider transition-colors group-hover:text-[#D4A017]">
                     {narasumber.name}
                   </p>
-                  <p className="text-[9px] md:text-[10px] font-black text-[#A1887F] uppercase tracking-widest mt-1">
+                  <p className="text-[10px] md:text-[10px] font-black text-[#A1887F] tracking-widest mt-1">
                     ({narasumber.role})
                   </p>
                 </div>

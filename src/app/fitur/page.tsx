@@ -77,7 +77,7 @@ export default async function FiturPage() {
                       <h3 className="text-lg md:text-xl font-black text-white mb-2 uppercase italic">
                         {materi.title}
                       </h3>
-                      <p className="text-[9px] text-white/80 leading-tight font-medium uppercase tracking-widest line-clamp-3">
+                      <p className="text-[10px] text-white/80 leading-tight font-medium tracking-widest line-clamp-3">
                         {materi.description || ""}
                       </p>
                       <div className="mt-4 pt-2 border-t border-white/10">
