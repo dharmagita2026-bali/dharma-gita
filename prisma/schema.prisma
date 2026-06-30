@@ -68,7 +68,7 @@ model UserKidungMastery {
 model QuizHistory {
   id         String   @id @default(cuid())
   userId     String
-  user       User     @relation(fields: [userId], references: [id])
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   score      Int
   expGained  Int
   createdAt  DateTime @default(now())
