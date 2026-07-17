@@ -97,10 +97,14 @@ export default function ProfileClient({ user }: UserProps) {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Password berhasil diperbarui!");
+        alert("Password berhasil diperbarui! Silakan login kembali.");
         setOldPassword("");
         setNewPassword("");
         setConfirmPassword("");
+        
+        await signOut({ redirect: false });
+        
+        router.replace("/login");
       } else {
         alert(data.error || "Gagal memperbarui password");
       }
