@@ -16,6 +16,11 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    if (username.includes(" ")) {
+      setError("Username tidak boleh mengandung spasi");
+      return;
+    }
+
     setLoading(true);
 
     const result = await signIn("credentials", {
@@ -68,7 +73,7 @@ export default function LoginPage() {
               placeholder="Username" 
               className="w-full p-3.5 md:p-4 pl-14 md:pl-16 text-sm font-bold placeholder-[#A1887F]/60 text-[#4E342E] outline-none bg-transparent"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value.replace(/\s/g, ""))}
             />
           </div>
 

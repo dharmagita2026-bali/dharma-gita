@@ -57,6 +57,13 @@ export default function ProfileClient({ user }: UserProps) {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+      if (!allowedTypes.includes(file.type)) {
+        alert("Gagal: Hanya format JPG, JPEG, dan PNG yang diperbolehkan!");
+        if (fileInputRef.current) fileInputRef.current.value = ""; 
+        return;
+      }
+
       setSelectedFile(file);
       setPreviewUrl(URL.createObjectURL(file));
     }
@@ -181,7 +188,7 @@ export default function ProfileClient({ user }: UserProps) {
                   <input 
                     type="file" 
                     ref={fileInputRef}
-                    accept="image/*"
+                    accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                     onChange={handleFileChange}
                     className="text-[9px] md:text-[10px] flex-1 cursor-pointer font-bold text-[#A1887F] w-full" 
                   />

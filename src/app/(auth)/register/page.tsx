@@ -18,6 +18,11 @@ export default function RegisterPage() {
     e.preventDefault();
     setError("");
     
+    if (username.includes(" ")) {
+        setError("Username tidak boleh mengandung spasi");
+        return;
+    }
+
     if (password.length < 8) {
         setError("Password minimal harus berisikan 8 karakter");
         return;
@@ -90,7 +95,7 @@ export default function RegisterPage() {
               placeholder="Username Baru" 
               className="w-full p-3.5 md:p-4 pl-14 md:pl-16 text-sm font-bold placeholder-[#A1887F]/60 text-[#4E342E] outline-none bg-transparent"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value.replace(/\s/g, ""))}
             />
           </div>
 
