@@ -69,6 +69,49 @@ export default function ProfileClient({ user }: UserProps) {
     }
   };
 
+  const handleSavePassword = async () => {
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      alert("Semua kolom password harus diisi!");
+      return;
+    }
+    if (newPassword.length < 8) {
+      alert("Password baru minimal harus 8 karakter!");
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      alert("Konfirmasi password tidak cocok dengan password baru!");
+      return;
+    }
+
+    setIsSavingPassword(true);
+
+    try {
+      const res = await fetch("/api/profile/password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ oldPassword, newPassword }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Password berhasil diperbarui!");
+        setOldPassword("");
+        setNewPassword("");
+        setConfirmPassword("");
+      } else {
+        alert(data.error || "Gagal memperbarui password");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Terjadi kesalahan sistem saat menyimpan password.");
+    } finally {
+      setIsSavingPassword(false);
+    }
+  };
+
   const handleSaveProfile = async () => {
     setIsSaving(true);
     const formData = new FormData();
@@ -234,10 +277,11 @@ export default function ProfileClient({ user }: UserProps) {
               ))}
               <div className="flex justify-center md:justify-end pt-4">
                 <button 
+                  onClick={handleSavePassword}
                   disabled={isSavingPassword}
-                  className="w-full md:w-auto bg-[#4E342E] text-white px-8 md:px-10 py-3.5 md:py-3 rounded-full text-[9px] md:text-[10px] font-black uppercase shadow-lg hover:brightness-110 transition-all active:scale-95"
+                  className="w-full md:w-auto bg-[#4E342E] text-white px-8 md:px-10 py-3.5 md:py-3 rounded-full text-[9px] md:text-[10px] font-black uppercase shadow-lg hover:brightness-110 transition-all active:scale-95 disabled:opacity-50"
                 >
-                  Simpan Password
+                  {isSavingPassword ? "Menyimpan..." : "Simpan Password"}
                 </button>
               </div>
             </div>
